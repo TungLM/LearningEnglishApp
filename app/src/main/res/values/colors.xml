@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#125688</color>
+    <color name="colorPrimaryDark">#125688</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent">#c8e8ff</color>
+
+    <color name="album_title">#4c4c4c</color>
+
+    <!-- color text-->
+    <color name="a">#99FF66</color>
+    <color name="a1">#66FF33</color>
+    <color name="a2">#FFCCFF</color>
+    <color name="b">#FFCC66</color>
+    <color name="c">#66CCCC</color>
+    <color name="d">#FF9900</color>
+    <color name="d1">#FF99FF</color>
+    <color name="e">#6699FF</color>
+    <color name="e1">#009966</color>
+    <color name="g">#FF6666</color>
+    <color name="h">#FF6633</color>
+    <color name="i">#CC66FF</color>
+    <color name="k">#336666</color>
+    <color name="l">#996633</color>
+    <color name="m">#6666FF</color>
+    <color name="n">#FF3333</color>
+    <color name="o">#CC3366</color>
+    <color name="o1">#993333</color>
+    <color name="o2">#663333</color>
+    <color name="p">#333333</color>
+    <color name="q">#003366</color>
+    <color name="r">#FF0000</color>
+    <color name="s">#9900FF</color>
+    <color name="t">#9900FF</color>
+    <color name="u">#005500</color>
+    <color name="u1">#00BB00</color>
+    <color name="v">#001100</color>
+    <color name="x">#000088</color>
+    <color name="y">#660099</color>
+    <!-- End color text-->
+</resources>
