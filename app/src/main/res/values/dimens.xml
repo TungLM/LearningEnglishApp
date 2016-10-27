@@ -24,4 +24,6 @@
     <dimen name="ic_album_overflow_width">20sp</dimen>
     <dimen name="ic_album_overflow_height">30dp</dimen>
     <dimen name="ic_album_overflow_margin_top">10dp</dimen>
+
+    <dimen name="nav_drawer_width">260dp</dimen>
 </resources>

@@ -1,32 +1,38 @@
-package tung.vn.learningenglishbypicture;
+package tung.vn.learningenglishbypicture.main;
 
 import android.os.Build;
 import android.speech.tts.TextToSpeech;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Switch;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import tung.vn.learningenglishbypicture.R;
 import tung.vn.learningenglishbypicture.fragment.Alphabet;
+import tung.vn.learningenglishbypicture.fragment.FragmentDrawer;
 import tung.vn.learningenglishbypicture.fragment.Numbers;
-import tung.vn.learningenglishbypicture.model.Alphab;
+import tung.vn.learningenglishbypicture.fragment.StudyFragment;
 
-public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
+public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener, FragmentDrawer.FragmentDrawerListener{
+    private static final String TAG = "MainActivity1";
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -37,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             R.mipmap.ic_tab_contacts
     };
     private AdView mAdView;
-
+private FragmentDrawer fragmentDrawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,12 +60,33 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 //        Display back button bar
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        viewPager = (ViewPager) findViewById(R.id.viewpager);
+//        setupViewPager(viewPager);
+//        tabLayout = (TabLayout) findViewById(R.id.tabs);
+//        tabLayout.setupWithViewPager(viewPager);
+//        setupTabIcons();
+        fragmentDrawer = (FragmentDrawer) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        fragmentDrawer.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
+        fragmentDrawer.setListener(this);
+
+        displayView(0);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        Log.d(TAG, "onOptionsItemSelected.id " + id);
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setupTabIcons() {
@@ -83,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         Alphabet alphabet = new Alphabet();
         alphabet.setContext(this);
-        alphabet.setTaget("alphabe");
+        alphabet.setTaget("alphabet");
         adapter.addFrag(alphabet, "Alphabet");
         Numbers numbers = new Numbers();
         numbers.setContext(this);
@@ -146,6 +173,25 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
         super.onDestroy();
         tts.shutdown();
+    }
+
+    @Override
+    public void onDrawerItemSelected(View view, int position) {
+        displayView(position);
+    }
+
+    private void displayView (int position) {
+        Fragment fragment = null;
+        switch (position) {
+            case 0:
+                fragment = new StudyFragment();
+                break;
+            default:
+                break;
+        }
+        if(fragment != null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_body, fragment).commit();
+        }
     }
 }
 

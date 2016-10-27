@@ -1,11 +1,8 @@
 package tung.vn.learningenglishbypicture.adapter;
 
 import android.content.Context;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Build;
-import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,7 +17,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import tung.vn.learningenglishbypicture.MainActivity;
 import tung.vn.learningenglishbypicture.R;
 import tung.vn.learningenglishbypicture.common.Utility;
 import tung.vn.learningenglishbypicture.model.Alphab;

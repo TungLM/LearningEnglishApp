@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +61,13 @@ public class Alphabet extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        Utility.stopBG();
+        Log.d("T","");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("T","");
     }
 
     @Nullable

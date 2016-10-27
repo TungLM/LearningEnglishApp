@@ -187,4 +187,22 @@
     <string name="banner_home_footer">ca-app-pub-3120536913205473/5975042732</string>
     <string name="interstitial_full_screen">ca-app-pub-3120536913205473/3021576335</string>
 
+    <string name="action_search">Search</string>
+    <string name="action_settings">Setting</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_friend">Friend</string>
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_home</item>
+        <item>@string/nav_friend</item>
+        <item>@string/nav_friend</item>
+        <item>@string/nav_friend</item>
+        <item>@string/nav_friend</item>
+        <item>@string/nav_friend</item>
+    </string-array>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
 </resources>
